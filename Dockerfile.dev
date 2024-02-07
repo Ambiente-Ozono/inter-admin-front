@@ -1,0 +1,11 @@
+FROM node:alpine as development
+
+ENV NODE_ENV development
+
+WORKDIR /react-app
+
+COPY ./inter_admin_front/package*.json .
+
+RUN npm install
+
+COPY ./inter_admin_front .
