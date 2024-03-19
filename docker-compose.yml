@@ -9,4 +9,6 @@ services:
     volumes:
       - ./inter_admin_front:/react-app
     tty: true
+    environment:
+      - WATCHPACK_POLLING=true
     command: sh -c "npm start"
