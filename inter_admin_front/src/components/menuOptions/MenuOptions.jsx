@@ -47,7 +47,7 @@ function MenuOptions() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 onClick={handleOpenNavMenu}
             >
-                Clients
+                Clientes
             </Button>
             <Menu
               id="menu-appbar"
@@ -67,7 +67,7 @@ function MenuOptions() {
             >
                 <MenuItem key='form-client-register' onClick={handleCloseNavMenu}>
                     <Link to={"/register-form-client"}>
-                        <Typography textAlign="center">Form to Register</Typography>
+                        <Typography textAlign="center">Formulario de registro</Typography>
                     </Link>
                 </MenuItem>
                 <MenuItem key='Services' onClick={handleCloseNavMenu}>
@@ -75,18 +75,6 @@ function MenuOptions() {
                 </MenuItem>
             </Menu>
           </Box>
-          {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box> */}
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
