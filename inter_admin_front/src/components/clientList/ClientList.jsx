@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import { dataColumns, rows } from './properties';
+import ClientRegisterFormDialog from '../ClientRegisterFormDialog/ClientRegisterFormDialog';
 
 function ClientList() {
   return (
@@ -9,10 +10,13 @@ function ClientList() {
         <Grid container>
             <Grid item>
                 <Box sx={{ flexGrow: 1, mt: 2, mb: 2}}>
-                    <Grid container item>
+                    {/* <Grid container item>
                         <Button variant='contained'>
                             Registrar cliente
                         </Button>
+                    </Grid> */}
+                    <Grid container item>
+                        <ClientRegisterFormDialog />
                     </Grid>
                 </Box>
             </Grid>        
