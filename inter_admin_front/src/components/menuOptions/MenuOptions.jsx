@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -68,11 +67,6 @@ function MenuOptions() {
                 <MenuItem key='Services' onClick={handleCloseNavMenu}>
                     <Link to={"/clients"}>
                         <Typography textAlign="center">Listado de clientes</Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem key='form-client-register' onClick={handleCloseNavMenu}>
-                    <Link to={"/register-form-client"}>
-                        <Typography textAlign="center">Formulario de registro</Typography>
                     </Link>
                 </MenuItem>
             </Menu>

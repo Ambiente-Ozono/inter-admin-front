@@ -10,11 +10,6 @@ function ClientList() {
         <Grid container>
             <Grid item>
                 <Box sx={{ flexGrow: 1, mt: 2, mb: 2}}>
-                    {/* <Grid container item>
-                        <Button variant='contained'>
-                            Registrar cliente
-                        </Button>
-                    </Grid> */}
                     <Grid container item>
                         <ClientRegisterFormDialog />
                     </Grid>
