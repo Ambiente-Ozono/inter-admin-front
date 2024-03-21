@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ClientRegisterForm from './components/clientRegisterForm/ClientRegisterForm';
+import ClientList from './components/clientList/ClientList';
 
 import {
   createBrowserRouter,
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       {
         path: "/register-form-client",
         element: <ClientRegisterForm />
-      }
+      },
+      {
+        path: "/clients",
+        element: <ClientList />
+      },
     ]
   },
 ]);

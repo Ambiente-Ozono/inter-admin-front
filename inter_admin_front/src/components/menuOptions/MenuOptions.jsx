@@ -65,13 +65,15 @@ function MenuOptions() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
+                <MenuItem key='Services' onClick={handleCloseNavMenu}>
+                    <Link to={"/clients"}>
+                        <Typography textAlign="center">Listado de clientes</Typography>
+                    </Link>
+                </MenuItem>
                 <MenuItem key='form-client-register' onClick={handleCloseNavMenu}>
                     <Link to={"/register-form-client"}>
                         <Typography textAlign="center">Formulario de registro</Typography>
                     </Link>
-                </MenuItem>
-                <MenuItem key='Services' onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Services</Typography>
                 </MenuItem>
             </Menu>
           </Box>
