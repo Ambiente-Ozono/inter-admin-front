@@ -14,4 +14,4 @@ export const rows = [
     { id: 7, rut: '11111111-7', name: 'Empresa 7' },
     { id: 8, rut: '11111111-8', name: 'Empresa 8' },
     { id: 9, rut: '11111111-9', name: 'Empresa 9' },
-  ];
+];
