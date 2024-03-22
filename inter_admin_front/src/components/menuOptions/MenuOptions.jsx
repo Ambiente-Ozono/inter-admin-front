@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Clients', 'Services'];
 const settings = ['Login', 'Logout'];
 
 function MenuOptions() {

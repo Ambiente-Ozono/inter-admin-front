@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Box, Button, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { dataColumns, rows } from './properties';
 import ClientRegisterFormDialog from '../ClientRegisterFormDialog/ClientRegisterFormDialog';
 
