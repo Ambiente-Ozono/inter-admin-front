@@ -17,23 +17,23 @@ import { Link } from 'react-router-dom';
 const settings = ['Login', 'Logout'];
 
 function MenuOptions() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [submenuClients, setSubmenuClients] = React.useState(null);
+  const [userSettings, setUserSettings] = React.useState(null);
+  
 
   const handleOpenNavMenu = (event) => {
-    console.log(event.currentTarget);
-    setAnchorElNav(event.currentTarget);
+    setSubmenuClients(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+    setUserSettings(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setSubmenuClients(null);
   };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    setUserSettings(null);
   };
 
   return (
@@ -50,7 +50,7 @@ function MenuOptions() {
             <Menu
               id="menu-appbar"
               sx={{ mt: '45px' }}
-              anchorEl={anchorElNav}
+              anchorEl={submenuClients}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'center',
@@ -60,7 +60,7 @@ function MenuOptions() {
                 vertical: 'top',
                 horizontal: 'center',
               }}
-              open={Boolean(anchorElNav)}
+              open={Boolean(submenuClients)}
               onClose={handleCloseNavMenu}
             >
                 <MenuItem key='Services' onClick={handleCloseNavMenu}>
@@ -79,7 +79,7 @@ function MenuOptions() {
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
-              anchorEl={anchorElUser}
+              anchorEl={userSettings}
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
@@ -89,7 +89,7 @@ function MenuOptions() {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              open={Boolean(anchorElUser)}
+              open={Boolean(userSettings)}
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -36,7 +37,6 @@ function ClientRegisterFormDialog() {
             const formData = new FormData(event.currentTarget);
             const formJson = Object.fromEntries(formData.entries());
             const email = formJson.email;
-            console.log(email);
             handleClose();
           },
         }}
@@ -88,11 +88,34 @@ function ClientRegisterFormDialog() {
                 />
             </FormGroup>
 
-            <DialogActions>
+            <Stack 
+              gap={2}
+              direction={{
+                xs: 'row-reverse',
+                sm: 'row',
+              }}
+              sx={{
+                flexShrink: 0,
+                alignSelf: { xs: 'center', sm: 'flex-end' }
+              }}
+            >
+              <Button
+                size="small"
+                variant="contained"
+                onClick={handleClose}
+              >
+                Registrar
+              </Button>
+              <Button size="small" onClick={handleClose}>
+                Cancelar
+              </Button>
+            </Stack>
+
+            {/* <DialogActions>
                 <Button variant='contained' onClick={handleClose}>
                     Registrar
                 </Button>
-            </DialogActions>
+            </DialogActions> */}
         </FormControl> 
       </Dialog>
     </React.Fragment>
