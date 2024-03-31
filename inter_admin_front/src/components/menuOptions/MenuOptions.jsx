@@ -19,22 +19,28 @@ const settings = ['Login', 'Logout'];
 function MenuOptions() {
   const [submenuClients, setSubmenuClients] = React.useState(null);
   const [userSettings, setUserSettings] = React.useState(null);
-  
+  const [submenuServices, setSubmenuServices] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenSubmenuClients = (event) => {
     setSubmenuClients(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenSubmenuSettings = (event) => {
     setUserSettings(event.currentTarget);
   };
+  const handleOpenSubmenuServices = (event) => {
+    setSubmenuServices(event.currentTarget);
+  }
 
-  const handleCloseNavMenu = () => {
+  const handleCloseSubmenuClients = () => {
     setSubmenuClients(null);
   };
-
-  const handleCloseUserMenu = () => {
+  const handleCloseSubmenuSettings = () => {
     setUserSettings(null);
   };
+  const handleCloseSubmenuServices = () => {
+    setSubmenuServices(null);
+  }
+
 
   return (
     <AppBar position="static">
@@ -43,7 +49,7 @@ function MenuOptions() {
           <Box sx={{ flexGrow: 1 }}>
             <Button 
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                onClick={handleOpenNavMenu}
+                onClick={handleOpenSubmenuClients}
             >
                 Clientes
             </Button>
@@ -61,18 +67,52 @@ function MenuOptions() {
                 horizontal: 'center',
               }}
               open={Boolean(submenuClients)}
-              onClose={handleCloseNavMenu}
+              onClose={handleCloseSubmenuClients}
             >
-                <MenuItem key='Services' onClick={handleCloseNavMenu}>
+                <MenuItem key='clients' onClick={handleCloseSubmenuClients}>
                     <Link to={"/clients"}>
                         <Typography textAlign="center">Listado de clientes</Typography>
                     </Link>
                 </MenuItem>
             </Menu>
           </Box>
+          {/* SERVICES */}
+
+          <Box sx={{ flexGrow: 1 }}>
+            <Button 
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                onClick={handleOpenSubmenuServices}
+            >
+                Servicios
+            </Button>
+            <Menu
+              id="menu-appbar"
+              sx={{ mt: '45px' }}
+              anchorEl={submenuServices}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              open={Boolean(submenuServices)}
+              onClose={handleCloseSubmenuServices}
+            >
+                <MenuItem key='Services' onClick={handleCloseSubmenuClients}>
+                    <Link to={"/services"}>
+                        <Typography textAlign="center">Listado de servicios</Typography>
+                    </Link>
+                </MenuItem>
+            </Menu>
+          </Box>
+          
+          {/* END SERVICES */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenSubmenuSettings} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -90,10 +130,10 @@ function MenuOptions() {
                 horizontal: 'right',
               }}
               open={Boolean(userSettings)}
-              onClose={handleCloseUserMenu}
+              onClose={handleCloseSubmenuSettings}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseSubmenuSettings}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

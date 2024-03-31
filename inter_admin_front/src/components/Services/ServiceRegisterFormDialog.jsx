@@ -3,16 +3,20 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from "@mui/material/FormGroup"; 
 import FormControl from "@mui/material/FormControl"; 
-import FormLabel from "@mui/material/FormLabel";
-import Divider from '@mui/material/Divider';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import {
+  Unstable_NumberInput as BaseNumberInput,
+  numberInputClasses,
+} from '@mui/base/Unstable_NumberInput';
 
 
-function ClientRegisterFormDialog() {
+function ServiceRegisterFormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [serviceType, setServiceType] = React.useState("Air")
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,10 +26,14 @@ function ClientRegisterFormDialog() {
     setOpen(false);
   };
 
+  const handleChange = (event) => {
+    setServiceType(event.target.value);
+  };
+
   return (
     <React.Fragment>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Formulario de Registro de clientes
+        Formulario de Registro de servicios
       </Button>
       <Dialog
         open={open}
@@ -44,47 +52,37 @@ function ClientRegisterFormDialog() {
       >
         <DialogTitle>Formulario de Registro</DialogTitle>
         <FormControl component="fieldset" sx={{ m: 3 }}>
-            <FormLabel component="legend"> 
-                Datos del Cliente
-            </FormLabel> 
-            <FormGroup aria-label="position"> 
+            <FormGroup aria-label="position">
+                <Select
+                    id="serviceType"
+                    value={serviceType}
+                    onChange={handleChange}
+                    inputProps={{ 'aria-label': 'Without label' }}
+                    autoWidth
+                    displayEmpty
+                >
+                    <MenuItem value={"Air"}>Aire</MenuItem>
+                    <MenuItem value={"Water"}>Agua</MenuItem>
+                </Select>
                 <TextField
                     id="name"
-                    label="Nombre del cliente"
+                    label="Nombre del Servicio"
                     sx={{ my: 1 }}
                 />
-                <TextField
-                    id="socialName"
-                    label="Razón Social"
+                {/* <TextField
+                    id="monthlyIncome"
+                    label="Costo Mensual"
                     sx={{ mb: 1 }}
-                />
-                <TextField
-                    id="rut"
-                    label="RUT"
-                    sx={{ mb: 1 }}
-                />
-            </FormGroup>
-
-            <Divider component={"div"}  sx={{ mt: 2, mb: 2 }}/>
-
-            <FormLabel component="legend"> 
-                Datos del Representante Legal
-            </FormLabel> 
-            <FormGroup aria-label="position"> 
-                <TextField
-                    id="legalRepresentativeName"
-                    label="Nombre"
-                    sx={{ mb: 1 }}
-                />
-                <TextField
-                    id="legalRepresentativeEmail"
-                    label="Correo Electrónico"
-                    sx={{ mb: 1 }}
-                />
-                <TextField
-                    id="legalRepresentativePhone"
-                    label="Teléfono de contacto"
-                    sx={{ mb: 1 }}
+                /> */}
+                <BaseNumberInput
+                  slotProps={{
+                    incrementButton: {
+                      children: '▴',
+                    },
+                    decrementButton: {
+                      children: '▾',
+                    },
+                  }}
                 />
             </FormGroup>
 
@@ -117,4 +115,4 @@ function ClientRegisterFormDialog() {
 }
 
 
-export default ClientRegisterFormDialog;
+export default ServiceRegisterFormDialog;

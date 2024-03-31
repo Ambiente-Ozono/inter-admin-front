@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ClientList from './components/clientList/ClientList';
+import ServiceList from './components/Services/ServiceList';
 
 import {
   createBrowserRouter,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/clients",
         element: <ClientList />
+      },
+      {
+        path: "/services",
+        element: <ServiceList />
       },
     ]
   },
