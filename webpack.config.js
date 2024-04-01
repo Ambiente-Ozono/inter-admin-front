@@ -5,7 +5,10 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'budle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: () => {
+            console.log("base dir ", __dirname);
+            return path.resolve(__dirname, 'dist');
+        },
         publicPath: '/',
     },
     plugins: [
